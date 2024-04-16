@@ -2,3 +2,4 @@
 """ DocDocDocDocDocDoc
 """
 from api.v1.auth.auth import *
+from api.v1.auth.basic_auth import *
