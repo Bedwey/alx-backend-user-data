@@ -6,6 +6,7 @@ from os import getenv
 from api.v1.views import app_views
 from flask import Flask, jsonify, abort, request
 from flask_cors import (CORS, cross_origin)
+from api.v1.auth import Auth
 import os
 
 
@@ -27,7 +28,8 @@ def before_request_func():
     authentication based on the auth instance.
     If the path requires authentication, it checks if
     the request has a valid authorization header and a current user.
-    If either check fails, it aborts the request with the appropriate error code.
+    If either check fails, it aborts the request
+    with the appropriate error code.
 
     :return: None
     """
