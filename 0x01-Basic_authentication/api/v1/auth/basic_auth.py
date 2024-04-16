@@ -5,6 +5,7 @@ serves as a template for basic authentication systems.
 """
 
 from api.v1.auth.auth import Auth
+import base64
 
 
 class BasicAuth(Auth):
@@ -33,3 +34,24 @@ class BasicAuth(Auth):
             return None
 
         return authorization_header.split(' ', 1)[1]
+
+    def decode_base64_authorization_header(
+            self, base64_authorization_header: str) -> str:
+        """
+        Returns the decoded value of a Base64 string
+        base64_authorization_header.
+
+        :param base64_authorization_header: a Base64 string
+        :return: None if base64_authorization_header is None,
+        not a string, or not a valid Base64,
+        otherwise the decoded value as a UTF-8 string
+        """
+        if base64_authorization_header is None or \
+                type(base64_authorization_header) is not str:
+            return None
+
+        try:
+            return base64.b64decode(base64_authorization_header) \
+                .decode('utf-8')
+        except Exception:
+            return None
