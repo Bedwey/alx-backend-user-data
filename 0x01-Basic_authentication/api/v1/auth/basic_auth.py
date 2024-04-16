@@ -84,7 +84,8 @@ class BasicAuth(Auth):
         :param user_email: a string representing the user's email
         :param user_pwd: a string representing the user's password
         :return: None if user_email or user_pwd is None or not a string,
-        if the database doesn't contain a User instance with email equal to user_email,
+        if the database doesn't contain a User instance
+        with email equal to user_email,
         or if user_pwd is not the password of the User instance found,
         otherwise the User instance
         """
