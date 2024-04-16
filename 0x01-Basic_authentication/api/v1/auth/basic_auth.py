@@ -8,6 +8,7 @@ from api.v1.auth.auth import Auth
 import base64
 from typing import TypeVar
 from models.user import User
+from flask import Request
 
 
 class BasicAuth(Auth):
@@ -103,3 +104,21 @@ class BasicAuth(Auth):
                 return user
 
         return None
+
+    def current_user(self, request: Request = None) -> TypeVar('User'):
+        """
+        Retrieves the User instance for a request.
+
+        :param request: the Flask request object from which
+        the user should be retrieved
+        :return: None if the user cannot be retrieved,
+        otherwise the User instance
+        """
+        authorization_header = self.authorization_header(request)
+        base64_authorization_header = self.extract_base64_authorization_header(
+            authorization_header)
+        decoded_base64_authorization_header = self.decode_base64_authorization_header(
+            base64_authorization_header)
+        user_email, user_pwd = self.extract_user_credentials(
+            decoded_base64_authorization_header)
+        return self.user_object_from_credentials(user_email, user_pwd)
