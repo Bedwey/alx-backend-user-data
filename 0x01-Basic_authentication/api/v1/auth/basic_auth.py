@@ -25,7 +25,8 @@ class BasicAuth(Auth):
         not a string, or doesn't start with "Basic ",
         otherwise the part of the string after "Basic "
         """
-        if authorization_header is None or type(authorization_header) is not str:
+        if authorization_header is None or \
+                type(authorization_header) is not str:
             return None
 
         if not authorization_header.startswith('Basic '):
