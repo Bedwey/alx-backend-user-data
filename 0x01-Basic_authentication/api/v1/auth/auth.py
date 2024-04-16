@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-This module contains the Auth class which serves as a template for all authentication systems.
+This module contains the Auth class which serves
+as a template for all authentication systems.
 """
 
 
@@ -21,8 +22,10 @@ class Auth:
         Determines if the given path is within the list of excluded paths.
 
         :param path: a string representing the path of the request
-        :param excluded_paths: a list of strings representing the paths that don't require authentication
-        :return: False if the path is in the list of excluded paths, True otherwise
+        :param excluded_paths: a list of strings representing the
+        paths that don't require authentication
+        :return: False if the path is in the list of excluded paths,
+        True otherwise
         """
         return False
 
@@ -30,7 +33,8 @@ class Auth:
         """
         Returns the value of the authorization header.
 
-        :param request: the Flask request object from which the header should be retrieved
+        :param request: the Flask request object from which
+        the header should be retrieved
         :return: None for now, will be implemented in the future
         """
         return None
@@ -39,7 +43,8 @@ class Auth:
         """
         Returns the current authenticated user.
 
-        :param request: the Flask request object from which the user should be retrieved
+        :param request: the Flask request object from which
+        the user should be retrieved
         :return: None for now, will be implemented in the future
         """
         return None
