@@ -8,7 +8,7 @@ from api.v1.auth.auth import Auth
 import base64
 from typing import TypeVar
 from models.user import User
-from flask import Request
+from flask import request
 
 
 class BasicAuth(Auth):
@@ -105,7 +105,7 @@ class BasicAuth(Auth):
 
         return None
 
-    def current_user(self, request: Request = None) -> TypeVar('User'):
+    def current_user(self, request=None) -> TypeVar('User'):
         """
         Retrieves the User instance for a request.
 
